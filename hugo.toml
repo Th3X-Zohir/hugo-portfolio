@@ -1,4 +1,4 @@
-baseURL = "https://th3x-zohir.github.io/portfolio/"
+baseURL = "https://th3x-zohir.github.io/hugo-portfolio/"
 locale = "en-us"
 title = "Zohir Rayhan"
 enableRobotsTXT = true

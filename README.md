@@ -5,7 +5,7 @@ Personal website of **Zohir Rayhan** — Tech Lead · DevOps & DevSecOps Enginee
 Built with [Hugo](https://gohugo.io) (extended, v0.167.0) and deployed to GitHub
 Pages by GitHub Actions on every push to `main`.
 
-**Live:** https://th3x-zohir.github.io/portfolio/
+**Live:** https://th3x-zohir.github.io/hugo-portfolio/
 
 ## Layout
 
