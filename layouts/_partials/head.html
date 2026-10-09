@@ -1,0 +1,42 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{{- $title := cond .IsHome (printf "%s — %s" site.Params.name site.Params.tagline) (printf "%s · %s" .Title site.Params.name) }}
+{{- $desc := .Description | default site.Params.description }}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<meta name="author" content="{{ site.Params.name }}">
+<meta name="keywords" content="{{ delimit site.Params.keywords ", " }}">
+<link rel="canonical" href="{{ .Permalink }}">
+
+<meta property="og:type" content="{{ cond .IsPage "article" "website" }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Params.name }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $desc }}">
+
+{{- with resources.Get "css/main.css" }}
+  {{- $css := . | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{- end }}
+
+{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">{{ end }}
+
+{{- if .IsHome }}
+<script type="application/ld+json">
+{{ dict
+  "@context" "https://schema.org"
+  "@type" "Person"
+  "name" site.Params.name
+  "url" .Permalink
+  "jobTitle" "Tech Lead"
+  "email" site.Params.email
+  "description" site.Params.description
+  "sameAs" (slice site.Params.github site.Params.site)
+  "address" (dict "@type" "PostalAddress" "addressLocality" "Dhaka" "addressCountry" "Bangladesh")
+  | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+{{- end }}

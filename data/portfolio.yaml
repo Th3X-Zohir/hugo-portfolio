@@ -1,0 +1,98 @@
+summary: >-
+  I build and operate systems end to end — from Laravel applications and Python
+  automation to the Linux servers they run on. I specialize in AI integration,
+  performance tuning, and hardening infrastructure, with a track record of
+  shipping platforms that real institutions depend on, like the national
+  E-Family Court and the DIU Routine system.
+
+stats:
+  - label: uptime
+    value: "99.98%"
+    sub: 12-mo avg
+  - label: deploys
+    value: 1.4k+
+    sub: shipped
+  - label: region
+    value: ap-south
+    sub: Dhaka
+  - label: stack
+    value: full
+    sub: dev → ops
+
+skills:
+  - cat: Backend & Frontend
+    items: [Laravel, PHP, Python, Flask, MS SQL Server, MySQL, JavaScript, AJAX, Blade]
+  - cat: Server & Infrastructure
+    items: [Linux, LiteSpeed, cPanel / WHM, CloudLinux LVE, Imunify360, DNS & Email, Server Migration, SSL, Performance Tuning]
+  - cat: APIs & Integration
+    items: [JWT, Firebase Admin, FCM, Google APIs, Gmail API, SocketIO]
+  - cat: Mobile
+    items: [Java, Android, AndroidX, WebView, WorkManager, Play Core]
+
+open_source:
+  - name: Cortex
+    repo: cortex
+    lang: TypeScript
+    tag: Self-hosted AI Gateway
+    blurb: An OpenAI-compatible AI gateway with browser-backed providers, multi-account routing, admin controls, logs and quotas.
+  - name: Ecomai
+    repo: ecomai
+    lang: JavaScript
+    tag: Multi-tenant SaaS E-commerce
+    blurb: An open-source, self-hosted Shopify alternative — merchants pick a plan and get a fully functional multi-tenant store.
+  - name: LinkPay BD
+    repo: LINKPAY
+    lang: TypeScript
+    tag: Freelancer Payment Links
+    blurb: Bangladeshi freelancers create and send professional payment links in under 30s, settling to bKash or bank.
+  - name: BanglaBridge
+    repo: BanglaBridge
+    lang: JavaScript
+    tag: Real-time Chat Platform
+    blurb: Real-time chat rooms over WebSocket with an admin interface to monitor active rooms and connected users.
+  - name: SplitEasy
+    repo: SplitEasy
+    lang: Python
+    tag: Group Expense Splitter
+    blurb: A Flask expense splitter — create groups, invite members and track shared expenses with zero database setup.
+  - name: DubaiCleanupCare
+    repo: DubaiCleanupCare
+    lang: Blade
+    tag: Cleaning Service Platform
+    blurb: A Laravel platform that streamlines booking, managing and delivering cleaning jobs end to end.
+
+experience:
+  - role: Full-Stack Developer
+    org: E-Family Court — National e-Judiciary Platform
+    period: 06/2025 — Present
+    place: Dhaka & Chattogram
+    desc: Contributing to a nationwide digital case-filing system serving citizens, judges, lawyers and court staff.
+  - role: Full-Stack Developer (Laravel)
+    org: Office of the Student Affairs — Daffodil International University
+    period: 2024 — 06/2025
+    place: Dhaka, Bangladesh
+    desc: Developed and maintained Student Hub, the official university platform automating student services across orientation, clubs and course enrollment.
+
+education:
+  - degree: B.Sc. in Computer Science & Engineering
+    org: Daffodil International University
+    period: 09/2021 — 09/2025
+    place: Dhaka, Bangladesh
+    extra: GPA 3.35 / 4.00
+  - degree: Higher Secondary Certificate
+    org: Mymensingh Government College
+    period: 2018 — 2019
+    place: Mymensingh, Bangladesh
+    extra: Science
+
+certifications:
+  - title: Building the Next Generation Systems
+    by: Powered by Microsoft
+  - title: Prompt Engineering & Creative Innovation
+    by: DPTI · International Online University · Goedu
+
+achievements:
+  - title: Datathon 2023 — 1st Runner Up
+    by: Competitive data science contest
+  - title: Daffodil AI Celebration
+    by: Project showcase of AI Tutor

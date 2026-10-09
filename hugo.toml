@@ -1,0 +1,44 @@
+baseURL = "https://th3x-zohir.github.io/portfolio/"
+locale = "en-us"
+title = "Zohir Rayhan"
+enableRobotsTXT = true
+enableGitInfo = false
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  name = "Zohir Rayhan"
+  tagline = "Tech Lead · DevOps & DevSecOps Engineer"
+  description = "Tech Lead, DevOps & DevSecOps Engineer and Full-Stack Developer in Dhaka, Bangladesh. I build and operate systems end to end."
+  location = "Dhaka, Bangladesh"
+  email = "admin@zohirrayhan.me"
+  site = "https://zohirrayhan.me"
+  github = "https://github.com/Th3X-Zohir"
+  keywords = ["Zohir Rayhan", "Tech Lead", "DevOps", "DevSecOps", "Laravel", "Python", "Linux", "Bangladesh"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  noClasses = false
+  style = "github-dark"
+
+[menus]
+  [[menus.main]]
+    name = "Work"
+    pageRef = "/projects"
+    weight = 10
+  [[menus.main]]
+    name = "About"
+    pageRef = "/about"
+    weight = 20
+  [[menus.main]]
+    name = "Contact"
+    url = "mailto:admin@zohirrayhan.me"
+    weight = 30
+
+[outputs]
+  home = ["html", "rss"]
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
