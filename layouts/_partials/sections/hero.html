@@ -1,0 +1,75 @@
+{{- $id := .identity }}
+{{- $photo := "photo.jpg" | relURL }}
+<section id="home" class="hero wrap section">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">
+        <span class="av"><i></i> available for work</span>
+        <span>·</span><span>{{ $id.location }}</span>
+        <span>·</span><span>UTC+6</span>
+      </div>
+      <div class="hero-name-row">
+        <h1 class="hero-name">
+          <span class="ln mask">{{ partial "letters.html" "Zohir" }}</span>
+          <span class="ln mask" data-d="1"><span class="it">{{ partial "letters.html" "Rayhan" }}</span></span>
+        </h1>
+        <div class="hero-mobile-avatar" aria-hidden="true">
+          <img src="{{ $photo }}" alt="">
+        </div>
+      </div>
+      <div class="hero-roles">
+        <span class="pre">role — </span>
+        <span data-typewriter="{{ delimit $id.roles "|" }}">{{ index $id.roles 0 }}</span>
+      </div>
+      <p class="hero-desc">{{ .hero.desc }}</p>
+      <div class="hero-cta">
+        <button class="btn btn-solid" data-mag data-go="work"><span>Selected work</span></button>
+        <button class="btn" data-mag data-go="contact"><span>Get in touch ↗</span></button>
+      </div>
+      <div class="hero-scroll">SCROLL TO EXPLORE <span class="ln"></span></div>
+    </div>
+    <div class="portrait">
+      <div class="ticks">FIG. 01 — OPERATOR</div>
+      <div class="stage">
+        <div class="backplate"></div>
+        <div class="halo h1"></div>
+        <div class="halo h2"></div>
+        <div class="tilt">
+          <div class="pin">
+            <div class="frame-head">
+              <span class="fid">ZR / PROFILE</span>
+              <span class="fstate"><i></i> LIVE</span>
+            </div>
+            <div class="meta-rail" aria-hidden="true">
+              <span>DEVOPS</span>
+              <span>FULL STACK</span>
+              <span>SECURE OPS</span>
+            </div>
+            <div class="pwrap">
+              <img src="{{ $photo }}" alt="Zohir Rayhan">
+              <span class="mesh"></span>
+              <span class="focus-ring"></span>
+            </div>
+            <span class="grade"></span>
+            <span class="scanbar"></span>
+            <div class="frame-foot">
+              <div class="idblock">
+                <span class="lab">Focus</span>
+                <strong>Build / Run / Scale</strong>
+              </div>
+            </div>
+            <span class="brk tl"></span><span class="brk tr"></span>
+            <span class="brk bl"></span><span class="brk br"></span>
+          </div>
+        </div>
+        <div class="pchip c1"><i></i> UPTIME 99.98%</div>
+        <div class="pchip c2">DHAKA · UTC+6</div>
+        <div class="pchip c3">● TECH LEAD</div>
+      </div>
+      <div class="cap">
+        <span>Zohir Rayhan · Operator</span>
+        <span class="accent">System status: online</span>
+      </div>
+    </div>
+  </div>
+</section>

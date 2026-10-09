@@ -1,0 +1,20 @@
+{{- $n := len .skills }}
+<section id="skills" class="skills section">
+  <div class="skills-sticky">
+    <div class="skills-head wrap">
+      <div class="meta"><span class="no">02</span><span>/ capabilities</span><span class="ln"></span><span>the toolchain — scroll →</span></div>
+    </div>
+    <div class="skills-track">
+      {{- range $i, $s := .skills }}
+        <div class="skill-panel">
+          <div class="pn">{{ printf "%02d" (add $i 1) }} — {{ printf "%02d" $n }}</div>
+          <h3>{{ $s.cat }}</h3>
+          <div class="cmd">{{ $s.cmd }}</div>
+          <div class="items">{{ range $s.items }}<span class="chip">{{ . }}</span>{{ end }}</div>
+        </div>
+      {{- end }}
+      <div class="skill-panel" style="width:30vw"></div>
+    </div>
+    <div class="skills-foot"><span>DRAG / SCROLL</span><span class="track"><i></i></span><span>STACK</span></div>
+  </div>
+</section>

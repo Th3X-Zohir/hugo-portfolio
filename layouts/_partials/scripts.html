@@ -1,0 +1,37 @@
+{{- $d := hugo.Data.site }}
+{{- /* window.DATA comes straight from Hugo's data file — same shape the
+       terminal, skill graph and command palette expect. */}}
+<script>
+  window.DATA = {{ dict
+    "identity"   $d.identity
+    "skills"     $d.skills
+    "projects"   $d.projects
+    "ghProjects" $d.ghProjects
+    "experience" $d.experience
+    "education"  $d.education
+    "certifications" $d.certifications
+    "achievements"   $d.achievements
+    "cv"         (dict "title" $d.cv.title "file" ($d.cv.file | relURL) "label" $d.cv.label "note" $d.cv.note)
+    "socials"    $d.socials
+    | jsonify | safeJS }};
+</script>
+
+{{- /* lenis is self-hosted and fingerprinted — no third-party runtime dependency */}}
+{{- range (slice "js/lenis.min.js" "js/v3-motion.js" "js/reels.js" "js/app.js") }}
+  {{- with resources.Get . }}
+    {{- $js := . | minify | fingerprint }}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+  {{- end }}
+{{- end }}
+
+<script>
+  /* boot the motion engine once fonts settle, with the same safety nets the
+     original shipped so the hero can never stay hidden */
+  (function () {
+    var done = false;
+    function boot() { if (done) return; done = true; if (window.MOTION) window.MOTION.init(); }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setTimeout(boot, 60); });
+    setTimeout(boot, 1400);
+    setTimeout(function () { document.body.classList.add("force-show"); }, 3200);
+  })();
+</script>

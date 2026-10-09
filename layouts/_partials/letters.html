@@ -1,0 +1,2 @@
+{{- /* split a word into per-letter inline-blocks, as the original <L> did */ -}}
+<span>{{ range (split . "") }}<span style="display:inline-block">{{ if eq . " " }}&nbsp;{{ else }}{{ . }}{{ end }}</span>{{ end }}</span>

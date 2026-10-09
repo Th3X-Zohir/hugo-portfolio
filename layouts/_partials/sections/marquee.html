@@ -1,0 +1,9 @@
+{{- $words := .marquee }}
+<div class="marquee"><div class="marquee-track">
+  {{- range $pass := (seq 2) }}
+    {{- range $i, $w := $words }}
+      {{- $n := add (mul (sub $pass 1) (len $words)) $i }}
+      <span class="item{{ if eq (mod $n 3) 1 }} gh{{ end }}">{{ $w }}</span>
+    {{- end }}
+  {{- end }}
+</div></div>

@@ -1,0 +1,16 @@
+<div class="rail">
+  {{- range (slice
+      (slice "profile" "PROFILE")
+      (slice "skills" "CAPABILITIES")
+      (slice "network" "SKILL GRAPH")
+      (slice "github" "GITHUB")
+      (slice "work" "WORK")
+      (slice "reel" "MOTION REEL")
+      (slice "experience" "EXPERIENCE")
+      (slice "console" "CONSOLE")
+      (slice "credentials" "CREDENTIALS")
+      (slice "cv" "CV PDF")
+      (slice "contact" "CONTACT")) }}
+    <a href="#{{ index . 0 }}" data-go><span class="dot"></span><span class="lbl">{{ index . 1 }}</span></a>
+  {{- end }}
+</div>

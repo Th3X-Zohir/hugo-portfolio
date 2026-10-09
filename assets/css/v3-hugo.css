@@ -1,0 +1,10 @@
+/* Additions for the static (Hugo-rendered) build — the React version handled
+   these two cases in component state instead of CSS. */
+
+/* theme button: show the icon for the mode you can switch TO */
+[data-theme-icon] .ic-moon { display: none; }
+html[data-theme="dark"] [data-theme-icon] .ic-sun { display: none; }
+html[data-theme="dark"] [data-theme-icon] .ic-moon { display: block; }
+
+/* CV preview: the placeholder hides once the iframe reports loaded */
+.cv-preview.ready .cv-preview-state { display: none; }

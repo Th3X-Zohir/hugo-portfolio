@@ -1,0 +1,55 @@
+{{- /* client projects first, then open-source ones — same order the live site uses */}}
+{{- $all := slice }}
+{{- range .projects }}
+  {{- $all = $all | append (merge . (dict "oss" false "gh" "")) }}
+{{- end }}
+{{- range .ghProjects }}
+  {{- $all = $all | append (merge . (dict "oss" true "url" (printf "https://github.com/Th3X-Zohir/%s" .gh))) }}
+{{- end }}
+{{- $n := len $all }}
+<section id="work" class="section">
+  <div class="wrap work-head">
+    <div class="shead">
+      <div class="meta"><span class="no">05</span><span>/ selected work</span><span class="ln"></span><span>{{ $n }} projects — live &amp; open source</span></div>
+      <h2 class="mask"><span>Things I&#39;ve shipped.</span></h2>
+    </div>
+  </div>
+  <div class="work-stack">
+    {{- range $i, $p := $all }}
+      {{- $host := index (split (replace $p.url "https://" "") "/") 0 }}
+      {{- $flip := eq (mod $i 2) 1 }}
+      <div class="work-panel{{ if $flip }} flip{{ end }}" style="background:{{ cond $flip "var(--paper-2)" "var(--paper)" | safeCSS }};z-index:{{ add $i 1 }}">
+        <span class="work-edge"></span>
+        <div class="pcard" data-n="{{ printf "%02d" (add $i 1) }}">
+          <div class="wrap">
+            <div class="prow">
+              <a class="wv" href="{{ $p.url }}" target="_blank" rel="noopener">
+                <div class="browser">
+                  <div class="bbar"><i></i><i></i><i></i><span class="url">{{ $host }}{{ if $p.oss }}/{{ $p.gh }}{{ end }}</span></div>
+                  <div class="bcanvas">
+                    <canvas class="reel-canvas" data-reel="{{ $p.reel | default "dashboard" }}"></canvas>
+                  </div>
+                  <div class="tagline">{{ $p.tag }}</div>
+                </div>
+              </a>
+              <div class="wi">
+                <div class="idx">PROJECT {{ printf "%02d" (add $i 1) }} — {{ printf "%02d" $n }}</div>
+                <div class="meta"><span class="live"><i></i>{{ $p.status }}</span><span>{{ $p.period }}</span></div>
+                <h3>{{ $p.name }}</h3>
+                <div class="ptag">{{ $p.tag }} · {{ $p.role }}</div>
+                <p class="blurb">{{ $p.blurb }}</p>
+                <ul class="hl">{{ range $p.highlights }}<li>{{ . }}</li>{{ end }}</ul>
+                <div class="foot">
+                  <div class="stack">{{ range $p.stack }}<span class="chip">{{ . }}</span>{{ end }}</div>
+                  <a class="open" href="{{ $p.url }}" target="_blank" rel="noopener">{{ cond $p.oss "view on github" "open live" }}
+                    <svg class="arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{- end }}
+  </div>
+</section>

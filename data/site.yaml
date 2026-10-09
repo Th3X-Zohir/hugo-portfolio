@@ -1,0 +1,369 @@
+# Single source of truth for the whole site — ported from the live site's data.js.
+# Hugo renders the markup from this at build time and also serializes it to
+# window.DATA for the terminal / skill graph / command palette.
+
+identity:
+  name: ZOHIR RAYHAN
+  handle: zohirrayhan
+  roles:
+    - Tech Lead
+    - DevOps Engineer
+    - DevSecOps Engineer
+    - Full-Stack Developer
+    - Server Administrator
+  location: Dhaka, Bangladesh
+  flag: BD
+  email: admin@zohirrayhan.me
+  phone: "+880 1317 540501"
+  site: https://zohirrayhan.me
+  summary: >-
+    I build and operate systems end to end — from Laravel applications and
+    Python automation to the Linux servers they run on. I specialize in AI
+    integration, performance tuning, and hardening infrastructure, with a track
+    record of shipping platforms that real institutions depend on, like the
+    national E-Family Court and the DIU Routine system.
+
+hero:
+  desc: >-
+    I build software and operate the infrastructure it runs on — closing the gap
+    between shipping code and keeping it alive in production.
+
+marquee:
+  [DevOps, Laravel, Linux, Python, DevSecOps, CI/CD, Firebase, MySQL,
+   cPanel/WHM, AI Integration, Flask, Performance]
+
+profile:
+  stats:
+    - v: "99.98"
+      suf: "%"
+      dec: 2
+      l: uptime maintained
+    - v: "4"
+      suf: "+"
+      dec: 0
+      l: live platforms
+    - v: "1400"
+      suf: "+"
+      dec: 0
+      l: deploys shipped
+    - v: "24"
+      suf: "/7"
+      dec: 0
+      l: operations mindset
+  pillars:
+    - k: Build
+      v: Apps
+      s: Laravel · Python · product delivery
+    - k: Operate
+      v: Infra
+      s: Linux · deploys · hosting systems
+    - k: Secure
+      v: Trust
+      s: Hardening · reliability · recovery
+    - k: Optimize
+      v: Speed
+      s: Performance · tuning · scale
+
+skills:
+  - cat: Backend & Frontend
+    cmd: stack --app
+    items: [Laravel, PHP, Python, Flask, MS SQL Server, MySQL, JavaScript, AJAX, HTML, CSS, Blade]
+  - cat: Server & Infrastructure
+    cmd: stack --ops
+    items: [Linux, LiteSpeed, cPanel / WHM, CloudLinux LVE, Imunify360, DNS & Email, Server Migration, SSL, Performance Tuning, Troubleshooting]
+  - cat: APIs & Integration
+    cmd: stack --api
+    items: [JWT, Firebase Admin, FCM, Firebase Messaging, Google APIs, Gmail API, SocketIO]
+  - cat: Mobile
+    cmd: stack --mobile
+    items: [Java, Android, AndroidX, WebView, WorkManager, Play Core]
+
+projects:
+  - name: E-Family Court
+    tag: National e-Judiciary Platform
+    status: LIVE
+    period: 06/2025 — Present
+    url: https://efamilycourt.judiciary.gov.bd/
+    role: Full-Stack Developer
+    reel: court
+    blurb: >-
+      End-to-end digital case-filing system for the Family Courts of Dhaka and
+      Chattogram. Citizens file cases online, track progress, pay securely, and
+      get SMS/email updates. Judges manage hearings and issue orders; lawyers
+      submit documents; court staff verify and generate reports.
+    highlights:
+      - Online case filing with secure payments & status tracking
+      - Role-based portals for judges, lawyers, citizens & staff
+      - Automated SMS / email notifications & PDF order generation
+    stack: [Laravel, PHP, MS SQL Server, JavaScript, AJAX, JWT, dompdf]
+
+  - name: Routine Scrapper
+    tag: University Scheduling Automation
+    status: LIVE
+    period: Web + Android
+    url: https://routine.zohirrayhan.me/
+    role: Creator & Maintainer
+    reel: schedule
+    blurb: >-
+      A centralized automation platform for Daffodil International University.
+      Scrapes official routines, builds the CSE database, and precomputes batch,
+      teacher, and room-wise schedules — with real-time room booking and push
+      notifications.
+    highlights:
+      - Scrapes official routines & precomputes batch/teacher/room schedules
+      - Real-time room availability & booking over SocketIO
+      - Companion Android app with FCM push & background sync
+    stack: [Python, Flask, SocketIO, Firebase FCM, pandas, ReportLab, Java / Android]
+
+  - name: Student Hub
+    tag: Official Student Management System
+    status: LIVE
+    period: Office of Student Affairs · DIU
+    url: https://studentshub.daffodilvarsity.edu.bd/team
+    role: Full-Stack Developer
+    reel: dashboard
+    blurb: >-
+      The official university platform automating student services —
+      orientation sign-up with digital food tokens, dedicated club-management
+      panels, and a dynamic course-enrollment engine synced from the GoEdu
+      platform.
+    highlights:
+      - "Orientation module: sign-up, digital food tokens & event preferences"
+      - "Per-club panels: members, certificates, payments & fund administration"
+      - Dynamic course enrollment synced from GoEdu
+    stack: [Laravel, Blade, MySQL, JavaScript, AJAX, JWT]
+
+  - name: Blood Bridge
+    tag: Blood Donor Finder Platform
+    status: LIVE
+    period: Side Project
+    url: https://blood.shafinahmed.site/find-donor/dummy
+    role: Full-Stack Developer
+    reel: map
+    blurb: >-
+      A geolocation-based platform that connects blood donors and seekers in
+      real time — interactive maps filter donors by group, location and radius,
+      with live ETA tracking and a community feed for urgent appeals.
+    highlights:
+      - Real-time donor location sharing with ETA & route
+      - Map search filtered by blood group, location & 5–20 km radius
+      - Community feed for urgent blood requests
+    stack: [Python, Flask, Leaflet.js, MySQL, JavaScript]
+
+ghProjects:
+  - name: Cortex
+    short: Cortex
+    gh: cortex
+    status: OPEN SOURCE
+    lang: TypeScript
+    tag: Self-hosted AI Gateway
+    role: Creator
+    period: Open source · TypeScript
+    reel: ai
+    blurb: >-
+      An OpenAI-compatible AI gateway with browser-backed providers,
+      multi-account ChatGPT routing, admin controls, logs, quotas and
+      noVNC-based provider management.
+    highlights:
+      - OpenAI-compatible API surface
+      - Multi-account ChatGPT routing
+      - noVNC provider management + quotas
+    stack: [TypeScript, Node.js, Docker, noVNC, OpenAI API, REST]
+
+  - name: Ecomai
+    short: Ecomai
+    gh: ecomai
+    status: OPEN SOURCE
+    lang: JavaScript
+    tag: Multi-tenant SaaS E-commerce
+    role: Creator
+    period: Open source · JavaScript
+    reel: shop
+    blurb: >-
+      An open-source, self-hosted Shopify alternative — merchants sign up, pick
+      a subscription plan and get a fully-functional multi-tenant online store.
+    highlights:
+      - Multi-tenant store provisioning
+      - Subscription plans & billing
+      - Self-hosted, fully open source
+    stack: [JavaScript, Node.js, Multi-tenant, MySQL, REST]
+
+  - name: LinkPay BD
+    short: LinkPay
+    gh: LINKPAY
+    status: OPEN SOURCE
+    lang: TypeScript
+    tag: Freelancer Payment Links
+    role: Creator
+    period: Open source · TypeScript
+    reel: pay
+    blurb: >-
+      Lets Bangladeshi freelancers create & send professional payment links in
+      under 30s — international card payments settling automatically to bKash
+      or bank.
+    highlights:
+      - Payment links in under 30 seconds
+      - International card acceptance
+      - Auto settlement to bKash / bank
+    stack: [TypeScript, Node.js, Payments, bKash]
+
+  - name: BanglaBridge
+    short: BanglaBridge
+    gh: BanglaBridge
+    status: OPEN SOURCE
+    lang: HTML
+    tag: Real-time Chat Platform
+    role: Creator
+    period: Open source · HTML/JS
+    reel: chat
+    blurb: >-
+      A real-time chat application — join rooms and communicate seamlessly,
+      with an admin interface to monitor active rooms and connected users.
+    highlights:
+      - Real-time rooms over WebSocket
+      - Admin monitoring of active rooms
+      - Seamless multi-user messaging
+    stack: [JavaScript, WebSocket, Node.js, HTML]
+
+  - name: SplitEasy
+    short: SplitEasy
+    gh: SplitEasy
+    status: OPEN SOURCE
+    lang: Python
+    tag: Group Expense Splitter
+    role: Creator
+    period: Open source · Python
+    reel: split
+    blurb: >-
+      A Flask expense-splitter — register, create groups, invite members and
+      add shared expenses visible to the whole group, with invite
+      accept/decline.
+    highlights:
+      - Group creation & member invites
+      - Shared expense tracking
+      - JSON-backed, zero-DB setup
+    stack: [Python, Flask, JSON, JavaScript]
+
+  - name: DubaiCleanupCare
+    short: CleanupCare
+    gh: DubaiCleanupCare
+    status: OPEN SOURCE
+    lang: Blade
+    tag: Cleaning Service Platform
+    role: Creator
+    period: Open source · Laravel
+    reel: booking
+    blurb: >-
+      A Laravel cleaning-service management platform — streamlines booking,
+      managing and delivering cleaning jobs end to end.
+    highlights:
+      - Online booking & scheduling
+      - Service & job management
+      - Laravel admin panel
+    stack: [PHP, Laravel, Blade, MySQL]
+
+# curated pinned repositories for the GitHub section
+pinned:
+  - name: cortex
+    lang: TypeScript
+    featured: true
+    desc: >-
+      Self-hosted, OpenAI-compatible AI gateway — browser-backed providers,
+      multi-account ChatGPT routing, admin controls, logs, quotas & noVNC-based
+      provider management.
+  - name: ecomai
+    lang: JavaScript
+    desc: >-
+      A complete multi-tenant SaaS e-commerce platform — like Shopify, but
+      open-source & self-hosted. Merchants sign up, pick a plan, and get a
+      fully-functional online store.
+  - name: LINKPAY
+    lang: TypeScript
+    desc: >-
+      LinkPay BD lets Bangladeshi freelancers create & send professional
+      payment links in under 30s — international card payments settling to
+      bKash or bank.
+  - name: BanglaBridge
+    lang: HTML
+    desc: >-
+      Real-time chat application — join rooms and communicate seamlessly, with
+      an admin interface to monitor active rooms and users.
+  - name: SplitEasy
+    lang: HTML
+    desc: >-
+      A Flask expense-splitter — register, create groups, invite members and
+      add shared expenses visible to the whole group, with invite
+      accept/decline.
+  - name: DubaiCleanupCare
+    lang: Blade
+    desc: >-
+      A Laravel cleaning-service management platform — streamlines booking,
+      managing and delivering cleaning jobs end to end.
+
+# last-known real values, shown instantly and when the GitHub API is rate-limited
+githubFallback:
+  contrib: 4407
+  repos: 14
+  followers: 12
+  stars: 3
+
+experience:
+  - role: Full-Stack Developer (Laravel)
+    org: Office of the Student Affairs — Daffodil International University
+    period: 2024 — 06/2025
+    place: Dhaka, Bangladesh
+    desc: >-
+      Developed and maintained Student Hub, the official university platform
+      automating student services across orientation, clubs and course
+      enrollment.
+  - role: Full-Stack Developer
+    org: E-Family Court — National e-Judiciary Platform
+    period: 06/2025 — Present
+    place: Dhaka & Chattogram
+    desc: >-
+      Contributing to a nationwide digital case-filing system serving citizens,
+      judges, lawyers and court staff.
+
+education:
+  - degree: B.Sc. in Computer Science & Engineering
+    org: Daffodil International University
+    period: 09/2021 — 09/2025
+    place: Dhaka, Bangladesh
+    extra: GPA 3.35 / 4.00
+  - degree: Higher Secondary Certificate
+    org: Mymensingh Government College
+    period: 2018 — 2019
+    place: Mymensingh, Bangladesh
+    extra: Science
+
+certifications:
+  - title: Building the Next Generation Systems
+    by: Powered by Microsoft
+  - title: Prompt Engineering & Creative Innovation
+    by: DPTI · International Online University · Goedu
+
+achievements:
+  - title: Datathon 2023 — 1st Runner Up
+    by: Competitive data science contest
+  - title: Daffodil AI Celebration
+    by: Project showcase of AI Tutor
+
+cv:
+  title: Zohir Rayhan — Curriculum Vitae
+  file: Zohir_Rayhan.pdf
+  label: PDF · hardcopy
+  note: Preview the exact PDF version online or download it directly.
+
+socials:
+  - label: GitHub
+    url: https://github.com/Th3X-Zohir
+    key: github
+  - label: LinkedIn
+    url: https://linkedin.com/
+    key: linkedin
+  - label: Facebook
+    url: https://facebook.com/
+    key: facebook
+  - label: Email
+    url: mailto:admin@zohirrayhan.me
+    key: email

@@ -1,0 +1,83 @@
+{{- $user := "Th3X-Zohir" }}
+{{- $fb := .githubFallback }}
+{{- $pinned := .pinned }}
+{{- $featured := index (where $pinned "featured" true) 0 }}
+{{- $rest := where $pinned "featured" "==" nil }}
+{{- $langColors := dict "JavaScript" "#f1e05a" "TypeScript" "#3178c6" "Python" "#3572A5" "PHP" "#4F5D95" "HTML" "#e34c26" "CSS" "#563d7c" "Java" "#b07219" "Blade" "#f7523f" "Shell" "#89e051" "Go" "#00ADD8" }}
+<section id="github" class="gh-band section pad">
+  <div class="wrap">
+    <div class="shead" data-rv>
+      <div class="meta">
+        <span class="no">04</span><span>/ github</span><span class="ln"></span>
+        <span class="gh-status"><i></i>github.com/{{ $user }}</span>
+      </div>
+      <h2 class="mask"><span>I ship code, every day.</span></h2>
+      <p class="sub">My GitHub isn&#39;t a graveyard of abandoned forks — it&#39;s where I build real, self-hosted products. Live data, straight from the API.</p>
+    </div>
+
+    <div class="gh-statrow" data-rv>
+      <div class="gh-bigstat" data-gh="repositories"><b>{{ $fb.repos }}</b><span class="l">repositories</span><span class="s">public</span></div>
+      <div class="gh-bigstat" data-gh="followers"><b>{{ $fb.followers }}</b><span class="l">followers</span><span class="s">on github</span></div>
+      <div class="gh-bigstat" data-gh="stars"><b>{{ $fb.stars }}</b><span class="l">stars</span><span class="s">earned</span></div>
+    </div>
+
+    <div class="gh-cal-card" data-rv data-d="1">
+      <div class="gh-cal-head">
+        <div class="gh-contrib"><b>{{ lang.FormatNumber 0 $fb.contrib }}</b><span>contributions<br>in the last year</span></div>
+        <span class="gh-legend">less
+          {{- range $l := (seq 0 4) }}
+            {{- $op := index (slice 1 0.34 0.56 0.78 1) $l }}
+            <i style="background:{{ cond (eq $l 0) "var(--line)" "var(--accent)" | safeCSS }};opacity:{{ $op }}"></i>
+          {{- end }} more
+        </span>
+      </div>
+      <div class="gh-cal-scroll">
+        <div class="gh-months"></div>
+        <div class="gh-cal-grid"><span class="gh-loading">loading activity…</span></div>
+      </div>
+    </div>
+
+    <div class="gh-pin-head" data-rv><span>PINNED REPOSITORIES</span><a href="https://github.com/{{ $user }}?tab=repositories" target="_blank" rel="noopener">view all ↗</a></div>
+
+    {{- with $featured }}
+      <a class="gh-featured" href="https://github.com/{{ $user }}/{{ .name }}" target="_blank" rel="noopener" data-rv data-repo="{{ .name }}">
+        <div class="gh-feat-tag">★ FEATURED PROJECT</div>
+        <h3>{{ .name }}</h3>
+        <p>{{ .desc }}</p>
+        <div class="gh-feat-foot">
+          <span class="gh-repo-lang"><i style="background:{{ (index $langColors .lang) | default "var(--accent)" | safeCSS }}"></i>{{ .lang }}</span>
+          <span data-stars style="display:none"></span>
+          <span data-forks style="display:none"></span>
+          <span class="gh-feat-open">open repository ↗</span>
+        </div>
+      </a>
+    {{- end }}
+
+    <div class="gh-pingrid">
+      {{- range $i, $r := $rest }}
+        <a class="gh-pin" href="https://github.com/{{ $user }}/{{ $r.name }}" target="_blank" rel="noopener" data-rv data-d="{{ add (mod $i 3) 1 }}" data-repo="{{ $r.name }}">
+          <div class="gh-pin-top"><span class="gh-pin-ic">▢</span><span class="gh-pin-name">{{ $r.name }}</span><span class="gh-pin-go">↗</span></div>
+          <p class="gh-pin-desc">{{ $r.desc }}</p>
+          <div class="gh-pin-foot">
+            <span class="gh-repo-lang"><i style="background:{{ (index $langColors $r.lang) | default "var(--accent)" | safeCSS }}"></i>{{ $r.lang }}</span>
+            <span data-stars style="display:none"></span>
+          </div>
+        </a>
+      {{- end }}
+    </div>
+
+    <div class="gh-langs" data-rv>
+      <div class="gh-langs-h">MOST USED LANGUAGES</div>
+      <div class="gh-langbar">
+        {{- range (slice (dict "k" "TypeScript" "pct" 33) (dict "k" "HTML" "pct" 26) (dict "k" "JavaScript" "pct" 18) (dict "k" "Blade" "pct" 13) (dict "k" "Python" "pct" 10)) }}
+          <span style="width:{{ .pct }}%;background:{{ (index $langColors .k) | default "var(--accent)" | safeCSS }}" title="{{ .k }} {{ .pct }}%"></span>
+        {{- end }}
+      </div>
+      <div class="gh-langlist">
+        {{- range (slice (dict "k" "TypeScript" "pct" 33) (dict "k" "HTML" "pct" 26) (dict "k" "JavaScript" "pct" 18) (dict "k" "Blade" "pct" 13) (dict "k" "Python" "pct" 10)) }}
+          <span class="gh-langtag"><i style="background:{{ (index $langColors .k) | default "var(--accent)" | safeCSS }}"></i>{{ .k }} <em>{{ .pct }}%</em></span>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</section>

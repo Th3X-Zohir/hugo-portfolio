@@ -1,0 +1,38 @@
+{{- $cv := .cv }}
+{{- $file := $cv.file | relURL }}
+<section id="cv" class="wrap section pad">
+  <div class="shead">
+    <div class="meta"><span class="no">10</span><span>/ cv</span><span class="ln"></span><span>preview · download</span></div>
+    <h2 class="mask"><span>View the hardcopy.</span></h2>
+  </div>
+
+  <div class="cv-shell">
+    <div class="cv-copy" data-rv>
+      <div class="cv-kicker">{{ $cv.label }}</div>
+      <h3>{{ $cv.title }}</h3>
+      <p>{{ $cv.note }}</p>
+
+      <div class="cv-actions">
+        <a class="btn btn-solid" href="{{ $file }}" target="_blank" rel="noopener"><span>Open PDF</span></a>
+        <a class="btn" href="{{ $file }}" download><span>Download CV</span></a>
+      </div>
+    </div>
+
+    <div class="cv-preview-card" data-rv data-d="1">
+      <div class="cv-preview-bar">
+        <span>{{ path.Base $cv.file }}</span>
+        <a href="{{ $file }}" download class="cv-inline-link">download
+          <svg class="arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+        </a>
+      </div>
+
+      <div class="cv-preview" data-cv-preview>
+        <iframe src="{{ $file }}#toolbar=0&amp;navpanes=0&amp;scrollbar=1&amp;view=FitH" title="Zohir Rayhan CV preview" loading="lazy"></iframe>
+        <div class="cv-preview-state">
+          <span class="cv-state-k">Loading preview</span>
+          <strong>Preparing PDF hardcopy view…</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

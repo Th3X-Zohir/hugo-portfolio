@@ -1,108 +1,16 @@
 {{ define "main" }}
-{{ $d := hugo.Data.portfolio }}
-
-<section class="hero">
-  <p class="eyebrow">{{ site.Params.location }} · available for work</p>
-  <h1>{{ site.Params.name }}</h1>
-  <p class="roles">Tech Lead · DevOps &amp; DevSecOps Engineer · Full-Stack Developer</p>
-  <p class="lede">{{ $d.summary }}</p>
-  <div class="cta">
-    <a class="btn primary" href="{{ "/projects/" | relURL }}">See the work</a>
-    <a class="btn" href="mailto:{{ site.Params.email }}">Get in touch</a>
-  </div>
-  <dl class="stats">
-    {{ range $d.stats }}
-      <div><dt>{{ .label }}</dt><dd>{{ .value }}</dd><span>{{ .sub }}</span></div>
-    {{ end }}
-  </dl>
-</section>
-
-<section class="band">
-  <h2 class="sec-title"><span>01</span> Selected work</h2>
-  <div class="cards">
-    {{ range first 4 (where site.RegularPages "Section" "projects").ByWeight }}
-      <article class="card">
-        <header>
-          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          {{ with .Params.status }}<span class="pill live">{{ . }}</span>{{ end }}
-        </header>
-        <p class="meta">{{ .Params.tag }} · {{ .Params.period }}</p>
-        <p>{{ .Summary }}</p>
-        <ul class="chips">{{ range first 5 .Params.stack }}<li>{{ . }}</li>{{ end }}</ul>
-      </article>
-    {{ end }}
-  </div>
-  <p class="more"><a href="{{ "/projects/" | relURL }}">All projects &rarr;</a></p>
-</section>
-
-<section class="band">
-  <h2 class="sec-title"><span>02</span> Stack</h2>
-  <div class="grid-2">
-    {{ range $d.skills }}
-      <div class="skill">
-        <h3>{{ .cat }}</h3>
-        <ul class="chips">{{ range .items }}<li>{{ . }}</li>{{ end }}</ul>
-      </div>
-    {{ end }}
-  </div>
-</section>
-
-<section class="band">
-  <h2 class="sec-title"><span>03</span> Open source</h2>
-  <div class="grid-2">
-    {{ range $d.open_source }}
-      <article class="os">
-        <h3><a href="{{ site.Params.github }}/{{ .repo }}" rel="noopener">{{ .name }}</a></h3>
-        <p class="meta">{{ .tag }} · {{ .lang }}</p>
-        <p>{{ .blurb }}</p>
-      </article>
-    {{ end }}
-  </div>
-</section>
-
-<section class="band">
-  <h2 class="sec-title"><span>04</span> Experience</h2>
-  <ol class="timeline">
-    {{ range $d.experience }}
-      <li>
-        <p class="when">{{ .period }}</p>
-        <h3>{{ .role }}</h3>
-        <p class="where">{{ .org }} · {{ .place }}</p>
-        <p>{{ .desc }}</p>
-      </li>
-    {{ end }}
-  </ol>
-</section>
-
-<section class="band">
-  <h2 class="sec-title"><span>05</span> Education &amp; recognition</h2>
-  <div class="grid-2">
-    <div>
-      <ol class="timeline tight">
-        {{ range $d.education }}
-          <li>
-            <p class="when">{{ .period }}</p>
-            <h3>{{ .degree }}</h3>
-            <p class="where">{{ .org }} · {{ .place }}{{ with .extra }} · {{ . }}{{ end }}</p>
-          </li>
-        {{ end }}
-      </ol>
-    </div>
-    <div>
-      <h3 class="sub">Certifications</h3>
-      <ul class="plain">{{ range $d.certifications }}<li><strong>{{ .title }}</strong><span>{{ .by }}</span></li>{{ end }}</ul>
-      <h3 class="sub">Achievements</h3>
-      <ul class="plain">{{ range $d.achievements }}<li><strong>{{ .title }}</strong><span>{{ .by }}</span></li>{{ end }}</ul>
-    </div>
-  </div>
-</section>
-
-<section class="band contact">
-  <h2 class="sec-title"><span>06</span> Contact</h2>
-  <p class="lede">Building something that has to stay up? I handle the application and the infrastructure under it.</p>
-  <p class="cta">
-    <a class="btn primary" href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>
-    <a class="btn" href="{{ site.Params.github }}" rel="noopener">github.com/Th3X-Zohir</a>
-  </p>
-</section>
+{{- $d := hugo.Data.site }}
+{{ partial "sections/hero.html" $d }}
+{{ partial "sections/marquee.html" $d }}
+{{ partial "sections/profile.html" $d }}
+{{ partial "sections/skills.html" $d }}
+{{ partial "sections/network.html" $d }}
+{{ partial "sections/github.html" $d }}
+{{ partial "sections/work.html" $d }}
+{{ partial "sections/reel.html" $d }}
+{{ partial "sections/experience.html" $d }}
+{{ partial "sections/console.html" $d }}
+{{ partial "sections/credentials.html" $d }}
+{{ partial "sections/cv.html" $d }}
+{{ partial "sections/contact.html" $d }}
 {{ end }}

@@ -1,42 +1,61 @@
+{{- $d := hugo.Data.site }}
+{{- $id := $d.identity }}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {{- $title := cond .IsHome (printf "%s — %s" site.Params.name site.Params.tagline) (printf "%s · %s" .Title site.Params.name) }}
 {{- $desc := .Description | default site.Params.description }}
+{{- $img := "photo.jpg" | absURL }}
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $desc }}">
-<meta name="author" content="{{ site.Params.name }}">
 <meta name="keywords" content="{{ delimit site.Params.keywords ", " }}">
+<meta name="author" content="{{ site.Params.name }}">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#23343a">
 <link rel="canonical" href="{{ .Permalink }}">
 
+<meta property="og:locale" content="en_US">
 <meta property="og:type" content="{{ cond .IsPage "article" "website" }}">
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $desc }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ site.Params.name }}">
+<meta property="og:image" content="{{ $img }}">
+<meta property="og:image:alt" content="Portrait of {{ site.Params.name }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ $desc }}">
+<meta name="twitter:image" content="{{ $img }}">
 
-{{- with resources.Get "css/main.css" }}
-  {{- $css := . | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
-{{- end }}
+<link rel="icon" href="{{ "photo.jpg" | relURL }}" type="image/jpeg">
 
-{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">{{ end }}
-
-{{- if .IsHome }}
 <script type="application/ld+json">
 {{ dict
   "@context" "https://schema.org"
   "@type" "Person"
-  "name" site.Params.name
-  "url" .Permalink
+  "name" "Zohir Rayhan"
+  "url" site.Home.Permalink
+  "image" $img
   "jobTitle" "Tech Lead"
-  "email" site.Params.email
+  "email" $id.email
+  "telephone" $id.phone
   "description" site.Params.description
-  "sameAs" (slice site.Params.github site.Params.site)
+  "sameAs" (slice site.Params.github $id.site)
   "address" (dict "@type" "PostalAddress" "addressLocality" "Dhaka" "addressCountry" "Bangladesh")
   | jsonify (dict "indent" "  ") | safeJS }}
 </script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+{{- /* the v3 stylesheets, bundled + minified + fingerprinted by Hugo Pipes */}}
+{{- $css := slice }}
+{{- range (slice "css/v3-base.css" "css/v3-sections.css" "css/v3-polish.css" "css/v3-hugo.css") }}
+  {{- with resources.Get . }}{{ $css = $css | append . }}{{ end }}
 {{- end }}
+{{- with $css | resources.Concat "css/site.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{- end }}
+
+{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">{{ end }}

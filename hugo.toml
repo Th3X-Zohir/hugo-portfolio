@@ -2,39 +2,17 @@ baseURL = "https://th3x-zohir.github.io/hugo-portfolio/"
 locale = "en-us"
 title = "Zohir Rayhan"
 enableRobotsTXT = true
-enableGitInfo = false
 disableKinds = ["taxonomy", "term"]
 
 [params]
   name = "Zohir Rayhan"
   tagline = "Tech Lead · DevOps & DevSecOps Engineer"
-  description = "Tech Lead, DevOps & DevSecOps Engineer and Full-Stack Developer in Dhaka, Bangladesh. I build and operate systems end to end."
-  location = "Dhaka, Bangladesh"
-  email = "admin@zohirrayhan.me"
-  site = "https://zohirrayhan.me"
+  description = "Zohir Rayhan — Tech Lead, DevOps & DevSecOps Engineer and Full-Stack Developer in Dhaka, Bangladesh. An editorial engineering portfolio."
   github = "https://github.com/Th3X-Zohir"
-  keywords = ["Zohir Rayhan", "Tech Lead", "DevOps", "DevSecOps", "Laravel", "Python", "Linux", "Bangladesh"]
+  keywords = ["Zohir Rayhan", "Tech Lead", "DevOps Engineer", "DevSecOps Engineer", "Full-Stack Developer", "Laravel", "Python", "Linux", "CI/CD", "Bangladesh Portfolio"]
 
 [markup.goldmark.renderer]
   unsafe = true
-
-[markup.highlight]
-  noClasses = false
-  style = "github-dark"
-
-[menus]
-  [[menus.main]]
-    name = "Work"
-    pageRef = "/projects"
-    weight = 10
-  [[menus.main]]
-    name = "About"
-    pageRef = "/about"
-    weight = 20
-  [[menus.main]]
-    name = "Contact"
-    url = "mailto:admin@zohirrayhan.me"
-    weight = 30
 
 [outputs]
   home = ["html", "rss"]
@@ -42,3 +20,9 @@ disableKinds = ["taxonomy", "term"]
 [sitemap]
   changefreq = "weekly"
   priority = 0.5
+
+[minify]
+  disableJS = true   # the reel + motion engines are hand-tuned; don't re-minify them in the HTML pass
+
+[build]
+  writeStats = false

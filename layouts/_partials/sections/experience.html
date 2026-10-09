@@ -1,0 +1,19 @@
+<section id="experience" class="wrap section pad">
+  <div class="shead">
+    <div class="meta"><span class="no">07</span><span>/ experience</span><span class="ln"></span><span>track record</span></div>
+    <h2 class="mask"><span>Where I&#39;ve built.</span></h2>
+  </div>
+  <div class="tl">
+    <div class="tl-fill"></div>
+    {{- range $i, $e := .experience }}
+      <div class="tl-item" data-rv data-d="{{ mod $i 4 }}">
+        <span class="node"></span>
+        <div class="per">{{ $e.period }}</div>
+        <div class="ro">{{ $e.role }}</div>
+        <div class="or">{{ $e.org }}</div>
+        <div class="pl">{{ $e.place }}</div>
+        <p class="de">{{ $e.desc }}</p>
+      </div>
+    {{- end }}
+  </div>
+</section>

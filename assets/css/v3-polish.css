@@ -1,0 +1,124 @@
+/* ============================================================
+   v3 POLISH — micro-interactions on every interactive element.
+   (CSS transitions; smooth on the shipped site / real browsers.)
+============================================================ */
+
+/* global smoothing for interactive primitives */
+a, button, .chip, .soc, .icard, .mon-card, .pchip, .stat, .spec .row,
+.rail a, .nav-links a, .cmdk-item, .ibtn, .wv, .proj-open, .open, .wi-open {
+  transition: color .28s var(--ease), background-color .28s var(--ease),
+    border-color .28s var(--ease), transform .4s var(--ease-out),
+    box-shadow .4s var(--ease-out), opacity .28s var(--ease), filter .4s var(--ease-out);
+}
+
+/* keyboard accessibility — ship-ready focus rings */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px;
+}
+
+/* nav */
+.nav-links a:hover { transform: translateY(-1px); }
+.brand:hover .sq { transform: rotate(45deg) scale(1.15); }
+.brand .sq { transition: transform .45s var(--ease-out); }
+.ibtn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px -10px var(--accent); }
+.ibtn:active { transform: translateY(0) scale(.94); }
+.ibtn svg { transition: transform .4s var(--ease-out); }
+.ibtn:hover svg { transform: rotate(12deg); }
+
+/* rail dots */
+.rail a:hover .dot { transform: scale(1.5); }
+.rail a .dot { transition: transform .3s var(--ease-out), background-color .3s, border-color .3s; }
+
+/* chips — lift + scale */
+.chip:hover { transform: translateY(-3px); box-shadow: 0 8px 20px -12px var(--accent); }
+.skills-items .chip:hover, .net-chips .chip:hover { transform: translateY(-3px) scale(1.04); }
+
+/* buttons — micro press */
+.btn:active { transform: translateY(1px) scale(.98); }
+.btn svg, .btn span { transition: transform .35s var(--ease-out); }
+.btn:hover svg { transform: translate(3px,-3px); }
+
+/* stat cells */
+.stat { transition: background-color .3s; }
+.stat:hover { background: var(--paper-2); }
+.stat:hover .v { color: var(--accent); }
+.stat .v { transition: color .3s; }
+
+/* spec rows */
+.spec .row:hover { padding-left: 8px; }
+.spec .row:hover .k { color: var(--accent); }
+.spec .row { transition: padding-left .3s var(--ease-out); }
+.spec .row .k { transition: color .3s; }
+.profile-stage, .profile-cell, .profile-bio-card, .stats-profile .st {
+  transition: border-color .3s var(--ease), transform .45s var(--ease-out), box-shadow .45s var(--ease-out), background-color .3s var(--ease);
+}
+.profile-stage:hover { transform: translateY(-3px); border-color: var(--line-2); box-shadow: 0 30px 70px -40px var(--accent); }
+.profile-cell:hover, .profile-bio-card:hover { transform: translateY(-4px); border-color: var(--line-2); box-shadow: var(--shadow); }
+.stats-profile .st:hover { transform: translateY(-3px); background: var(--paper); }
+
+/* monitor cards */
+.mon-card:hover, .mon-logwrap:hover { border-color: var(--line-2); transform: translateY(-3px); box-shadow: var(--shadow); }
+
+/* portrait chips drift on hover */
+.portrait .pchip { transition: box-shadow .4s var(--ease-out), border-color .3s; }
+.portrait:hover .pchip { border-color: var(--accent); }
+.portrait .pin { transition: box-shadow .5s var(--ease-out); }
+.portrait:hover .pin { box-shadow: 0 40px 90px -30px var(--accent); }
+.portrait .backplate, .portrait .halo, .portrait .meta-rail span, .portrait .idblock,
+.portrait .focus-ring, .portrait img {
+  transition: transform .55s var(--ease-out), opacity .35s var(--ease), border-color .3s var(--ease), filter .45s var(--ease-out), box-shadow .45s var(--ease-out);
+}
+.portrait:hover .backplate { transform: translate(6px, -6px); }
+.portrait:hover .halo.h1 { transform: scale(1.08); opacity: .9; }
+.portrait:hover .halo.h2 { transform: scale(.94) translate(4px, -2px); }
+.portrait:hover .meta-rail span { transform: translateX(-4px); border-color: rgba(255,255,255,.28); }
+.portrait:hover .idblock { transform: translateY(-2px); border-color: rgba(255,255,255,.2); }
+.portrait:hover .focus-ring { transform: scale(1.015); }
+.portrait:hover img { filter: saturate(1) contrast(1.04) sepia(.04); transform: scale(1.035); }
+
+/* project visuals */
+.wv .browser { transition: transform .6s var(--ease-out); }
+.wv:hover .browser { transform: scale(1.015); }
+.wv .bcanvas .big { transition: letter-spacing .5s var(--ease-out); }
+.wv:hover .bcanvas .big { letter-spacing: 0; }
+.proj-open svg, .open svg, .wi-open svg { transition: transform .3s var(--ease-out); }
+.wi .open:hover svg, .proj-open:hover svg { transform: translate(4px,-4px); }
+
+/* credential cards arrow hint */
+.icard { position: relative; }
+.icard::after { content: "→"; position: absolute; right: 0; top: 18px; font-family: var(--font-mono); color: var(--accent); opacity: 0; transform: translateX(-6px); transition: opacity .3s, transform .3s var(--ease-out); }
+.icard:hover::after { opacity: 1; transform: translateX(0); }
+.icard:hover h4 { color: var(--accent); }
+.icard h4 { transition: color .3s; }
+
+/* cv */
+.cv-preview-card, .cv-meta span {
+  transition: border-color .3s var(--ease), transform .45s var(--ease-out), box-shadow .45s var(--ease-out), background-color .3s var(--ease);
+}
+.cv-preview-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 34px 76px -40px var(--accent); }
+.cv-meta span:hover { transform: translateY(-2px); border-color: var(--line-2); }
+.cv-inline-link:hover svg { transform: translate(4px,-4px); }
+
+/* socials */
+.soc svg { transition: transform .35s var(--ease-out); }
+.soc:hover svg { transform: rotate(-8deg) scale(1.1); }
+
+/* command palette items */
+.cmdk-item:hover { transform: translateX(3px); }
+.cmdk-item .ic { transition: color .25s; }
+
+/* contact email underline grow */
+.contact .em a { position: relative; }
+.contact .em a::after { content: ""; position: absolute; left: 0; bottom: -3px; height: 1px; width: 0; background: var(--accent); transition: width .4s var(--ease-out); }
+.contact .em a:hover::after { width: 100%; }
+
+/* section header rule grows on reveal-in */
+.shead .meta .ln { transform-origin: left; }
+
+/* links in terminal output */
+.term-out a { transition: opacity .2s; }
+.term-out a:hover { opacity: .7; }
+
+/* tech network panel list rows already animate; add icon */
+.net-detail ul li a .ar { transition: transform .25s var(--ease-out); }
+.net-detail ul li a:hover .ar { transform: translate(3px,-3px); }

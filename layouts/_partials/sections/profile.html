@@ -1,0 +1,55 @@
+{{- $id := .identity }}
+<section id="profile" class="wrap section pad">
+  <div class="shead">
+    <div class="meta"><span class="no">01</span><span>/ profile</span><span class="ln"></span><span>who&#39;s behind the work</span></div>
+    <h2 class="mask"><span>Engineer &amp; operator,<br>end to end.</span></h2>
+  </div>
+  <div class="profile-shell">
+    <div class="profile-main" data-rv>
+      <div class="profile-stage">
+        <div class="profile-kicker">Profile / editorial mode</div>
+        <div class="profile-super">FULL-STACK<br>MEETS OPS</div>
+        <p class="profile-lead">I build the software, then run the system behind it.</p>
+        <p class="profile-body short">From application logic to production infrastructure, I work across the whole stack with reliability as part of the product.</p>
+        <div class="profile-strip">
+          <span>Tech Lead</span>
+          <span>DevOps</span>
+          <span>DevSecOps</span>
+          <span>Full-Stack</span>
+        </div>
+      </div>
+      <div class="profile-principle" data-rv data-d="1">
+        <span class="nlab">Core principle</span>
+        <p>Shipping is step one. Stability, speed, and trust are the real standard.</p>
+      </div>
+    </div>
+    <div class="profile-side" data-rv data-d="1">
+      <div class="profile-matrix">
+        {{- range .profile.pillars }}
+          <div class="profile-cell">
+            <div class="profile-card-top">{{ .k }}</div>
+            <h3>{{ .v }}</h3>
+            <p>{{ .s }}</p>
+          </div>
+        {{- end }}
+      </div>
+      <div class="profile-bio-card">
+        <div class="profile-card-top">Availability</div>
+        <div class="profile-bio-grid">
+          <div class="mrow"><span>Base</span><strong>{{ $id.location }}</strong></div>
+          <div class="mrow"><span>Email</span><strong><a href="mailto:{{ $id.email }}" class="accent">{{ $id.email }}</a></strong></div>
+          <div class="mrow"><span>Status</span><strong class="accent">Open to opportunities</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="stats stats-profile" data-rv style="margin-top:clamp(40px,5vw,70px)">
+    {{- range .profile.stats }}
+      <div class="st">
+        <div class="topline"></div>
+        <div class="v"><span data-count="{{ .v }}" data-dec="{{ .dec }}">0</span><small>{{ .suf }}</small></div>
+        <div class="l">{{ .l }}</div>
+      </div>
+    {{- end }}
+  </div>
+</section>
