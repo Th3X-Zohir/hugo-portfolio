@@ -33,5 +33,14 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setTimeout(boot, 60); });
     setTimeout(boot, 1400);
     setTimeout(function () { document.body.classList.add("force-show"); }, 3200);
+    /* last resort: if the motion engine never ran (script blocked or failed),
+       uncover the page anyway rather than leaving the loader over it */
+    setTimeout(function () {
+      if (window.MOTION) return;
+      document.body.classList.remove("loading");
+      document.body.classList.add("force-show");
+      var l = document.querySelector(".loader");
+      if (l) l.parentNode.removeChild(l);
+    }, 4000);
   })();
 </script>
